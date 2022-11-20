@@ -1,0 +1,60 @@
+﻿@using Student_Record.Models
+@model List<StudentModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <h3>Student List</h3>
+        <hr />
+        <a href="~/Student/Add">
+            Add
+        </a>
+        <table>
+            <thead>
+                <tr>
+                    <th>I.D.</th>
+                    <th>Last name</th>
+                    <th>First name</th>
+                    <th>Year</th>
+                    <th>Course</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (StudentModel s in Model)
+                {
+                    <tr>
+                        <td>@s.ID</td>
+                        <td>@s.Lastname</td>
+                        <td>@s.Firstname</td>
+                        <td>@s.Year</td>
+                        <td>@s.Course</td>
+                        <td>
+                            <a href="~/Student/Edit?StudentID=@s.ID">
+                                Edit
+                            </a>
+
+                            <form action="~/Student/Delete" method="post"
+                                  style="display: inline">
+                                <input type="hidden" name="ID" value="@s.ID" />
+                                <button type="submit">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

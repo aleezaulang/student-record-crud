@@ -1,0 +1,38 @@
+﻿@using Student_Record.Models
+@model StudentModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form action="~/Student/Update" method="post">
+            I.D.
+            <input type="number" name="ID" value="@Model.ID" />
+            <br />
+            Last Name
+            <input type="text" name="Lastname" value="@Model.Lastname" />
+            <br />
+            First Name
+            <input type="text" name="Firstname" value="@Model.Firstname" />
+            <br />
+            Year
+            <input type="number" name="Year" value="@Model.Year" />
+            <br />
+            Course
+            <input type="text" name="Course" value="@Model.Course" />
+            <br />
+            <button type="submit">
+                Save
+            </button>
+        </form>
+    </div>
+</body>
+</html>
